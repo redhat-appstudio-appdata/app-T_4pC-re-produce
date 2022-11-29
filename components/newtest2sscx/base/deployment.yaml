@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: newtest2sscx
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: newtest
+    app.kubernetes.io/part-of: test-application
+  name: newtest2sscx
+  namespace: sdouglas1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: newtest2sscx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: newtest2sscx
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload:sdouglas1-newtest2sscx
+        imagePullPolicy: Always
+        name: container-image
+        resources: {}
+status: {}
